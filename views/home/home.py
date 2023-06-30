@@ -2,11 +2,9 @@
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.behaviors import ButtonBehavior
 from kivy.metrics import dp, sp
 from kivy.utils import rgba, QueryDict
-
-from kivy.clock import Clock, mainthread
+from jls_extract_var.clock import Clock, mainthread
 
 from kivy.properties import StringProperty, ListProperty, ColorProperty, NumericProperty
 

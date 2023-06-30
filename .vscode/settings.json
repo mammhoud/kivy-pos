@@ -1,6 +1,7 @@
 {
     "python.linting.pylintEnabled": false,
-    "python.linting.flake8Enabled": true,
-    "python.linting.enabled": true,
-    "python.analysis.typeCheckingMode": "basic"
+    "python.linting.flake8Enabled": false,
+    "python.linting.enabled": false,
+    "python.analysis.typeCheckingMode": "basic",
+    "materialkv.pythonFile": "main.py"
 }
