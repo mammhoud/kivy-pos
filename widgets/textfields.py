@@ -18,6 +18,8 @@ class FlatField(TextInput):
         self.background_color = [0,0,0,0]
         self.write_tab = False
 
+
+
 class TextField(FlatField):
     bcolor = ColorProperty([0,0,0,1])
     main_color = ColorProperty([1,1,1,1])
@@ -90,3 +92,68 @@ class OutlineTextField(FlatField):
 
     def on_radius(self, *args): 
         self.border_draw.rounded_rectangle=[self.pos[0], self.pos[1], self.size[0], self.size[1], self.radius[0]]
+        
+        
+        
+        
+class SearchBar(FlatField):
+    choices = ListProperty(['Product 1','Product 2', 'product 3'])
+    def __init__(self, **kw):
+        super().__init__(**kw)
+        self.multiline= False
+        self.dropdown=None
+    def on_text(self, inst, text):
+        try:
+            
+            if self.dropdown:
+                self.dropdown.dismiss()
+                self.dropdown = None
+                
+            self.show_suggestions(text)
+            
+        except:
+            pass
+        
+    
+    
+    
+    def keyboard_on_key_down(self, window,kc, text, modifiers):
+        #if kc[0] == ord("\r"):
+            #self.text= self.values[0]
+            
+        if self.dropdown:
+            self.dropdown.dismiss()
+            self.dropdown = None
+            
+                
+        else:
+            super().keyboard_on_key_down(window,kc,text,modifiers)
+    def show_suggesitons(self, suggestions: str):
+        try: 
+            self.dropdown = DropDown()
+            self.dropdown.autowidth= False
+            self.dropdown.size_hint_x = None
+            self.dropdown.width = Window.width*.4
+            
+            x:int = 0
+            
+            for c in self.choices:
+                b= Button()
+                b.text = c
+                b.size_hint_y = None
+                b.height = dp(54)
+                
+                self.dropdown.add_width(b)
+                
+                x+= 1
+                
+                if x> 0:
+                    self.dropdown.open(self)
+        except:
+            pass
+                        
+    def open_dropdown(self, *args):
+        if self.dropdown:
+            self.dropdown.open(self)
+            
+    
