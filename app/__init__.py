@@ -5,7 +5,6 @@ from kivy.metrics import dp, sp
 from kivy.properties import ColorProperty, ListProperty
 
 from .view import MainWindow
-
 class MainApp(App):
     theme = "light"
     color_primary = ColorProperty(rgba("#3B0BFB"))
