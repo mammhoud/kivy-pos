@@ -16,7 +16,6 @@ class MainApp(App):
     color_secondary_bg = ColorProperty(rgba("#EFEFEF"))
     color_primary_text = ColorProperty(rgba("#000000"))
     color_secondary_text = ColorProperty(rgba("#A4A4A4"))
-
     fonts = QueryDict()
     fonts.size = QueryDict()
     fonts.size.extra = dp(54)
@@ -26,7 +25,6 @@ class MainApp(App):
     fonts.size.h4 = dp(16)
     fonts.size.h5 = dp(14)
     fonts.size.h6 = dp(12)
-
     fonts.heading = 'assets/fonts/Roboto/Roboto-Black.ttf'
     fonts.subheading = 'assets/fonts/Roboto/Roboto-Medium.ttf'
     fonts.body = 'assets/fonts/feather/feather.ttf'
